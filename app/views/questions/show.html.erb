@@ -8,7 +8,21 @@
       Name: <%= @question.name %>
     </div>
     <hr>
+    <h3>Post new answer</h3>
 
+    <%= form_with model: [@question, @answer], local: true do |f| %>
+      <%= f.hidden_field :question_id, {value: @question.id} %>
+
+      <div class="form-group">
+        <label>Content</label>
+        <%= f.text_area :content, class: 'form-control' %>
+      </div>
+      <div class="text-center">
+        <%= f.submit "Post", class: 'btn btn-primary'%>
+      </div>
+
+
+    <%end%>
     <div>
       <%= link_to '> Home', root_path %>
     </div>

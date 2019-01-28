@@ -7,6 +7,7 @@ class QuestionsController < ApplicationController
     #byebug
     #Questionモデルからparams[:id]のデータを取得する
     @question = Question.find(params[:id])
+    @answer = Answer.new
   end
 
   def new
