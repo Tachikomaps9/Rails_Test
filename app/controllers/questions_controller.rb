@@ -1,4 +1,8 @@
 class QuestionsController < ApplicationController
+  # アクションが実行される前に実行される
+  # この様に共通化を行う
+  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  
   def index
     @questions = Question.all
   end
@@ -25,11 +29,11 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:id])
+    #@question = Question.find(params[:id])
   end
 
   def update
-    @question = Question.find(params[:id])
+    #@question = Question.find(params[:id])
     if @question.update(question_params)
       redirect_to root_path, notice: 'Success!'
     else
@@ -39,12 +43,16 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
+    #@question = Question.find(params[:id])
     @question.destroy
     redirect_to root_path, notice: 'Success!'
   end
 
   private
+    def set_question
+      @question = Question.find(params[:id])
+    end
+
     def question_params
       # byebug
       # ストロングパラメータ　指定したパラメータのみ受け取るようにしている
