@@ -3,4 +3,6 @@ class Answer < ApplicationRecord
   # ↑ question:references が　モデルの紐付けとなる
   # Answerモデルはquestionモデルに紐付くという事になる
   belongs_to :question
+  validates :content, presence: true
+  validates :name, presence: true
 end
