@@ -7,3 +7,6 @@
 - 6.バリデート
 - 7.ルーティングの設定
 - 8.リファクタリング
+
+デプロイ
+https://qanda-test.herokuapp.com
